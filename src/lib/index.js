@@ -8,7 +8,6 @@ import {DEFAULT_FLOW_TIMEOUT} from './cli/config';
 import {collectFlowCoverage} from './flow';
 import {withTmpDir} from './promisified';
 import reportHTML from './report-html';
-import reportBadge from './report-badge';
 import reportJSON from './report-json';
 import reportText from './report-text';
 
@@ -82,11 +81,6 @@ export default async function generateFlowCoverageReport(opts: FlowCoverageRepor
 
   if (reportTypes.indexOf('text') >= 0) {
     reportResults.push(reportText.generate(coverageData, opts));
-  }
-
-  // Run the badge reporter implicitly if the html report has been included.
-  if (reportTypes.indexOf('badge') >= 0 || reportTypes.indexOf('html') >= 0) {
-    reportResults.push(reportBadge.generate(coverageData, opts));
   }
 
   if (reportTypes.indexOf('html') >= 0) {

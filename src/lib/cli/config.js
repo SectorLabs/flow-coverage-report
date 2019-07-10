@@ -9,7 +9,7 @@ export type HTMLTemplateOptions = {|
   showMeterBar: bool
 |}
 
-export type ReportType = 'json' | 'text' | 'badge' |'html';
+export type ReportType = 'json' | 'text' | 'html';
 
 export type ConfigParams = {|
   reportTypes?: Array<ReportType>,
